@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-o2 page-post-detail">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+	<title>原来你是这样的前端build | Clara - 爱写代码的小女生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+    <!-- keywords -->
+<meta name="keywords" content="build-tools,Clara,前端博客,前端技术分享,css,div,js,jquery"/>
+<!-- Canonical links -->
+<link rel="canonical" href="http://yoursite.com/2017/01/01/build-tools/index.html">
+<!-- Alternative links -->
+
+<!-- Icon -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/img/favicon-230x230.png" sizes="230x230">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
+-->
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2f83cd">
+<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+<!-- CSS -->
+<!-- build:css css/dist.o2.css -->
+<link rel="stylesheet" href="/css/o2.css">
+<!-- endbuild -->
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="Clara - 爱写代码的小女生">
+<!-- Open Graph -->
+<meta name="description" content="明明白白我的心，渴望一份好工具，曾经为你伤透了心，为什么甜蜜的梦容易醒~啊哈，我终于弄懂了你，在浩瀚的人群中~
+###我要报菜名了，你可别晕阿
+####Node, NPM, Grunt, Gulp, Bower, Webpack, Browserify, Yeoman, Brunch……诸多的名词让你一时间感到手足无措，好像根本学不完。即使对于一些经验丰富的开发者来说，诸多的前端工具还是会让他们感">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原来你是这样的前端build">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/build-tools/index.html">
+<meta property="og:site_name" content="Clara - 爱写代码的小女生">
+<meta property="og:description" content="明明白白我的心，渴望一份好工具，曾经为你伤透了心，为什么甜蜜的梦容易醒~啊哈，我终于弄懂了你，在浩瀚的人群中~
+###我要报菜名了，你可别晕阿
+####Node, NPM, Grunt, Gulp, Bower, Webpack, Browserify, Yeoman, Brunch……诸多的名词让你一时间感到手足无措，好像根本学不完。即使对于一些经验丰富的开发者来说，诸多的前端工具还是会让他们感">
+<meta property="og:image" content="http://yoursite.com/img/1.png">
+<meta property="og:image" content="http://yoursite.com/img/2.png">
+<meta property="og:image" content="http://yoursite.com/img/3.png">
+<meta property="og:image" content="http://yoursite.com/img/4.png">
+<meta property="og:image" content="http://yoursite.com/img/5.png">
+<meta property="og:updated_time" content="2017-02-21T14:19:38.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原来你是这样的前端build">
+<meta name="twitter:description" content="明明白白我的心，渴望一份好工具，曾经为你伤透了心，为什么甜蜜的梦容易醒~啊哈，我终于弄懂了你，在浩瀚的人群中~
+###我要报菜名了，你可别晕阿
+####Node, NPM, Grunt, Gulp, Bower, Webpack, Browserify, Yeoman, Brunch……诸多的名词让你一时间感到手足无措，好像根本学不完。即使对于一些经验丰富的开发者来说，诸多的前端工具还是会让他们感">
+<meta name="twitter:image" content="http://yoursite.com/img/1.png">
+<!-- Baidu Analytics -->
+
+
+<script>
+var App = {
+    root:'/'    
+};
+</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="navbar navbar-fixed-top header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index.html" title="Clara - 爱写代码的小女生" class="navbar-brand">
+                <img src="/img/logo-clara.png" alt="Clara - 爱写代码的小女生"/>
+            </a>
+            <div onclick="javascript:void(0)" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav header-links header-links-main">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-links header-links-extra">
+                <li class="search-wrap">
+                    <a class="fa fa-search search-icon" href="#search" title="搜索"></a>
+                    <form id="search" method="get" class="search-trigger search-form">
+                        <input type="text" name="query" class="search-form-ipt" placeholder="搜索" />
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="themes" aria-expanded="false">主题&nbsp;<span class="caret"></span></a>
+                    <ul id="theme-list" class="dropdown-menu" aria-labelledby="themes">
+                        <li data-v="light"><a href="javascript:;">曙光女神</a></li>
+                        <li data-v="dark"><a href="javascript:;">暗影猎手</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    
+	
+<div class="container post-wrap">
+    
+    <!-- Post -->
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <div class="post-title">
+            <h2><a href="/2017/01/01/build-tools/" itemprop="name">原来你是这样的前端build</a></h2>
+            <ul class="post-stats">
+                
+                
+                <li><a href='/tags/build-tools/' class='meta-tag'>build-tools</a></li>
+                 
+                
+                <li title="字数"><span class="icon fa-font"></span></li>
+                
+                 
+            </ul>
+            
+        </div>
+        <div class="post-meta">
+            <time class="published" datetime="2017-01-01T14:13:40.000Z" itempro="datePublished">2017-01-01</time>
+            <a target="_blank" href="https://github.com/clara1991" class="author"><span class="name">clara</span><img src="https://avatars.githubusercontent.com/clara1991?v=3&s=80" alt="clara1991" /></a>
+        </div>
+    </header>
+    <!--<a href="/2017/01/01/build-tools/" class="image featured post-cover"><img src="/img/post/post-default.png" alt="原来你是这样的前端build" /></a>-->
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
+        <p><em>明明白白我的心，渴望一份好工具，曾经为你伤透了心，为什么甜蜜的梦容易醒~</em><br><strong>啊哈，我终于弄懂了你，在浩瀚的人群中~</strong></p>
+<p>###我要报菜名了，你可别晕阿</p>
+<p>####Node, NPM, Grunt, Gulp, Bower, Webpack, Browserify, Yeoman, Brunch……<br><img src="img/1.png" alt="Alt text"><br>诸多的名词让你一时间感到手足无措，好像根本学不完。即使对于一些经验丰富的开发者来说，诸多的前端工具还是会让他们感到头痛。<br>别担心，要知道，所有这些工具，其最初的设计目的，都是要让你的工作变得更简单。<br> 要想弄明白这些工具是什么、如何工作以及为何要使用它们，你其实只需要抓住少数几个核心概念。</p>
+<h2 id="概念1：build工具的两大核心功能，就是“安装vs做事”" class="post-heading"><a href="#概念1：build工具的两大核心功能，就是“安装vs做事”" class="headerlink" title="概念1：build工具的两大核心功能，就是“安装vs做事”"></a>概念1：build工具的两大核心功能，就是“安装vs做事”<a class="post-anchor" href="#概念1：build工具的两大核心功能，就是“安装vs做事”" aria-hidden="true"></a></h2><p>从本质上说，开发工具做的事情就两个：</p>
+<blockquote>
+<p>1、帮你安装东西<br>2、帮你做事</p>
+</blockquote>
+<p>当你接触到一个新的开发工具的时候，你首先需要搞清楚一个东西：“这个工具的目的是帮我安装东西，还是帮我做事？”</p>
+<p><strong>安装类的工具</strong><br>例如<em>npm</em>、<em>Bower</em>和<em>Yeoman</em>几乎什么东西都能装</p>
+<blockquote>
+<p>它们可以用来安装前端库，例如Angular.js或是React.js。<br>它们还可以为你的开发环境安装服务器。<br>它们可以安装测试库。<br>它们甚至可以帮你安装其他的前端开发工具。 </p>
+</blockquote>
+<p>简而言之，任何你能想到的与代码有关的东西，它们都能安装。 </p>
+<p><strong>做事类的工具</strong><br>例如Grunt、Webpack、Require.js、Brunchu和Gulp则更加复杂一点。这类工具的目标，是在web开发中帮你完成自动化。<br>有的时候，这类工具所做的事情，被称为“任务（task）”。 为了完成这些任务，这类工具经常需要自己的包和插件生态。每一个工具都会使用不同的方式来完成任务。这些工具所做的事情也不尽相同。</p>
+<blockquote>
+<p>一些工具，擅长处理那些你所指定的任务，例如Grunt和Gulp等工具。&gt;还有一些工具，只只专注于一件事情，例如处理JavaScript的依赖，例如Browserify和Require.js等工具。</p>
+</blockquote>
+<p> 有的时候，你在一个项目之中可能需要使用多种工具。例如，我就曾在一个项目中使用了不同的工具来将下列任务进行自动化处理：</p>
+<blockquote>
+<p>1、在一个文件中替换文本字符串<br>2、创建文件夹，并且将文件转移到这些文件夹中<br>3、用一条单一命令运行单元测试<br>4、在我保存文件的时候刷新浏览器<br>5、所有JavaScript文件整合为一个文件，将所有CSS文件整合为一个文件<br>6、对所有JavaScript和CSS进行简化处理<br>7、在html页面中修改</p>
+</blockquote>
+<p>在你理解了前端工具分为安装类工具和帮你做事的工具之后，你就可以轻松的对它们进行归类：<br><img src="img/2.png" alt="Alt text"></p>
+<h2 id="概念2：build工具的“祖宗”是Node和npm" class="post-heading"><a href="#概念2：build工具的“祖宗”是Node和npm" class="headerlink" title="概念2：build工具的“祖宗”是Node和npm"></a>概念2：build工具的“祖宗”是Node和npm<a class="post-anchor" href="#概念2：build工具的“祖宗”是Node和npm" aria-hidden="true"></a></h2><p>Node和npm负责安装和运行所有这些工具，因此你的所有项目中都会有它们的身影。由于这个原因，很多开发者在安装新的工具之前，都会尽可能的尝试使用这两个工具解决问题。</p>
+<p>它们两个一个负责安装，一个负责帮你做事情。Node是做事工具，而npm则是安装工具。</p>
+<p>npm可以安装Angular.js和React.js等库。它还可以安装服务器，让你的应用在开发阶段可以在本地运行。它还可以安装很多其他工具，帮你完成很多事情，例如简化代码。</p>
+<p>而Node，则是帮你完成事情的，例如运行JavaScript文件，以及服务器等。 如果你刚刚开始学习，那么Node和npm都是必学的东西。随着你的项目不断丰富，你将会逐渐知道这两个工具的极限能力。当它们无法满足你的需要的时候，就是你需要开始安装其他工具的时候了。</p>
+<h2 id="概念3：build其实就是production-ready版本的应用" class="post-heading"><a href="#概念3：build其实就是production-ready版本的应用" class="headerlink" title="概念3：build其实就是production-ready版本的应用"></a>概念3：build其实就是production-ready版本的应用<a class="post-anchor" href="#概念3：build其实就是production-ready版本的应用" aria-hidden="true"></a></h2><p>开发者经常会把JavaScript和CSS拆分成独立的文件。</p>
+<p>独立文件的好处，是让你可以专注于编写针对性较强的代码，让每一部分代码只针对一个问题，以免日后代码多到让你自己都难以管理。但是当你的应用准备好被推向市场的时候，项目内存在多个JavaScript或是CSS文件并不是一个好主意。当用户访问你的网站的时候，每一个文件都需要独立的HTTP请求，这会让站点加载速度下降。</p>
+<p> 解决方法就是，给项目创建“build”，它要将所有CSS文件合并成一个文件，然后再合并JavaScript文件。这样一来，你就可以将文件完成最小化。要想创建这个build，你需要使用build工具。 </p>
+<p>下图是一个<strong>开发阶段</strong>的应用，注意到了吗，里面有10个文件<br><img src="img/3.png" alt="Alt text"><br>下图是相应的<strong>build阶段</strong>的应用，里面的标签和标签的数量都编程了一个。而DEVELOPMENT文件夹被PRODUCTION文件夹替代，里面的文件数量也从10个变成了4个。<br><img src="img/4.png" alt="Alt text"></p>
+<p>应用代码其实并没有变，我们只是把代码变得看上去更简洁而已，这就是所谓的“build”。</p>
+<p>你可能会想，build这东西真的有必要吗？它的作用不过是节省用户几毫秒的时间而已。如果你的站点只有你自己，或者身边少数的几个人在开，那么你不用费劲的做build。但是如果你的站点或是应用有着较高的流量，那么你就必须做build。</p>
+<p>因此，如果你只是在学习开发的阶段，或者你的站点流量较低，你没有必要花时间和精力去生成build。</p>
+<h2 id="概念4：“安装”和“做事”之间的界限有时会模糊" class="post-heading"><a href="#概念4：“安装”和“做事”之间的界限有时会模糊" class="headerlink" title="概念4：“安装”和“做事”之间的界限有时会模糊"></a>概念4：“安装”和“做事”之间的界限有时会模糊<a class="post-anchor" href="#概念4：“安装”和“做事”之间的界限有时会模糊" aria-hidden="true"></a></h2><p>没有工具只能做一件事情，而无法做另一件事情。所有工具都是“安装”和“做事”的结合体。但是一般来说，一个工具会有自己的强项，或是强于安装，或是强于做事。</p>
+<p>有的时候，一个安装类工具也能运行文件。npm就是这样，它也能运行命令和脚本，不仅仅是安装文件。</p>
+<h2 id="概念5：“最正确工具组合”这么个东西不存在" class="post-heading"><a href="#概念5：“最正确工具组合”这么个东西不存在" class="headerlink" title="概念5：“最正确工具组合”这么个东西不存在"></a>概念5：“最正确工具组合”这么个东西不存在<a class="post-anchor" href="#概念5：“最正确工具组合”这么个东西不存在" aria-hidden="true"></a></h2><p>使用哪些工具，完全是你自己说了算的事情。</p>
+<p>你也可以选择什么工具都不用。但是要记住，随着项目的发展，复制、黏贴、整合、开启服务器等事情会让你慢慢手忙脚乱起来。</p>
+<p>你也可以只使用Node和npm，其他工具一概不用。对于新手来说，这种方式很好，但是和上一条一样，慢慢你会开始感到力不从心。</p>
+<p>或者，除了Node和npm之外，你也可以使用少数几个其他工具。那么，你的开发过程将会以Node和npm为核心，然后搭配Grunt和Bower，或是Webpack或是Gulp和Bower。</p>
+<p>使用正确的工具，能够帮你将很多繁琐的事情实现自动化。但是使用工具的代价，就是你需要付出学习成本。<br><img src="img/5.png" alt="Alt text"></p>
+<h2 id="概念6：build工具学习成本较高，因此你只需要学习你用的上的工具" class="post-heading"><a href="#概念6：build工具学习成本较高，因此你只需要学习你用的上的工具" class="headerlink" title="概念6：build工具学习成本较高，因此你只需要学习你用的上的工具"></a>概念6：build工具学习成本较高，因此你只需要学习你用的上的工具<a class="post-anchor" href="#概念6：build工具学习成本较高，因此你只需要学习你用的上的工具" aria-hidden="true"></a></h2><p>项目开发本身就已经很复杂了，你可能要使用新的语言或是框架。你可能需要应付复杂的业务逻辑。而引入新的工具，只会让你的学习成本变得更高。</p>
+<p>对此，我的建议是，只学习那些你用的上的工具，其他的就先缓一缓吧。</p>
+<p>学习任何一种新东西，最好的方式就是进行实践。例如，不要为了学习Grunt而去学习，你可以在你的项目中去尝试运用。</p>
+<h2 id="概念7：所有build工具目标都一样：通过对大量低技术含量任务完成自动化，让你的工作变得更轻。" class="post-heading"><a href="#概念7：所有build工具目标都一样：通过对大量低技术含量任务完成自动化，让你的工作变得更轻。" class="headerlink" title="概念7：所有build工具目标都一样：通过对大量低技术含量任务完成自动化，让你的工作变得更轻。"></a>概念7：所有build工具目标都一样：通过对大量低技术含量任务完成自动化，让你的工作变得更轻。<a class="post-anchor" href="#概念7：所有build工具目标都一样：通过对大量低技术含量任务完成自动化，让你的工作变得更轻。" aria-hidden="true"></a></h2><p>使用build工具最开心的时刻，就是我所谓的“build工具涅槃”时刻，在这个时候，你会觉得自己充分发挥了工具的所有潜力。这个时刻，你是你保存了一个文件，或是运行了一条命令之后，成千上万个任务自动运行的时候。</p>
+<p>如果你的工具依然要求你手动移动文件、更改值、或是运行命令才能获得新的build，那说明你还没有迎来涅槃的时刻。</p>
+<p>使用build工具最大的好处之一，就是在保存了一个文件之后，你就能创建一个新的build，并且将其发送到你的浏览器中。它能够显著的提升前端开发流程的速度。</p>
+<p>那么我们应该在配置和调试build工具的时候，应该付出多少精力？很简单，如果你对当前工具的效果感到满意，那就可以停止配置了。</p>
+<h2 id="概念8：不是你自己的问题，有的时候这些工具的说明文档写的是挺烂的" class="post-heading"><a href="#概念8：不是你自己的问题，有的时候这些工具的说明文档写的是挺烂的" class="headerlink" title="概念8：不是你自己的问题，有的时候这些工具的说明文档写的是挺烂的"></a>概念8：不是你自己的问题，有的时候这些工具的说明文档写的是挺烂的<a class="post-anchor" href="#概念8：不是你自己的问题，有的时候这些工具的说明文档写的是挺烂的" aria-hidden="true"></a></h2><p>我保证，不仅是你会这样想。很多工具的说明文档写的都很烂。有的时候，连搞清楚工具最基本的功能都是一件很困难的事情。你会发现，很多人都和你有一样的困扰。 虽然这样的文档有点让人讨厌，但是同时也给了你一个机会，让你去发挥创意和你的编程能力。</p>
+<p>毕竟，我们的工作不就是解决问题么？</p>
+<p>原    文：I finally made sense of front end build tools. You can, too.</p>
+<p>译    文：SDK.cn<br>作    者：Christian（编译）</p>
+
+    </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2017-02-21T14:19:38.609Z" itemprop="dateModified">上次更新：2017-02-21 22:19:38</time>
+    </div>
+    
+<div class="actions pagination pagination-post">
+    
+    
+    <div class="pagination-post-next"><a href="/2016/12/27/gulp-makeup/" class="button big" title="gulp安装教程">gulp安装教程 <i class="fa fa-chevron-right"></i></a></div>
+    
+</div>
+
+
+    
+
+
+
+</article>
+
+</div>
+<div class="sec sec-follow-lite">
+    <div class="container">
+        <div class="sec-heading">
+            <p class="follow-pic"><img src="/img/qrcode.png" alt="关注我"/></p>
+            <p class="follow-desc">海海人生，无折腾不为乐。</p>
+            <p class="sec-heading-sub follow-acount">
+                <img class="follow-icon" src="/img/logo-circle-120.png" alt="AOTULabs"/> 微信号：sunriserong1991
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec sec-footer">
+    <div class="container">
+        <footer id="footer" class="sec-heading footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="/atom.xml" class="footer-link fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="https://github.com//" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+            </ul>
+            <div class="footer-sec copyright">
+            &copy; 2017 <a href="/" target="_blank">clara1991</a><br>
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+            </div>
+            <div class="footer-sec words">
+            "
+            
+            
+            
+            "
+            </div>
+            
+        </footer>
+    </div>
+</div>
+
+
+    
+    <section id="smSearch" class="slide-search">
+
+<!-- Search -->
+    <section>
+        <form class="search-trigger search" method="get">
+            <input type="text" name="query" placeholder="搜索" />
+        </form>
+    </section>
+
+<!-- Links -->
+    <section>
+		<h3>搜索结果</h3>
+        <ul class="links" id="searchResults">Loading...</ul>
+    </section>
+
+</section>
+
+<script id="tplSearch" type="text/hogan-tpl">
+    {{#items}}
+    <li>
+        <a href="{{ url }}" target="_blank">
+            <h3>{{ title }}</h3>
+            {{#desc}}
+			<p>{{ desc }}</p>
+			{{/desc}}
+        </a>
+    </li>
+    {{/items}}
+</script>
+
+
+    
+	
+	<div class="back-to-top" id="backTop"><i class="fa fa-long-arrow-up"></i></div>
+	
+    
+    <!-- Scripts -->
+<!-- build:js js/dist.o2.js -->
+<script src="/js/lunr.js"></script>
+<script src="/js/debounce.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/xhogan.js"></script>
+<script src="/js/hammer.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- endbuild -->
+
+
+
+
+
+
+
+    
+</body>
+</html>
