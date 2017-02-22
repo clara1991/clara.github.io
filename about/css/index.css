@@ -29,18 +29,17 @@ body{
             -o-transition:all 1000ms;
         }
         .head nav li a:hover,.head nav li a.active{color:#D22529;}
-    .head .motto{width:960px;margin:93px auto 0;position:relative;height:0px;overflow: hidden;
+    .head .motto{width:960px;margin:90px auto 0;position:relative;height:0px;overflow: hidden;
         -webkit-transition:all 1000ms;
         -moz-transition:all 1000ms;
         -ms-transition:all 1000ms;
         -o-transition:all 1000ms;
     }
         .motto .icon_person{float:left;width:266px;height:490px;background:url('../imgs/img_aaa.png') no-repeat left top;margin:0 20px 0 65px;}
-        .motto .motto_c{overflow: hidden;padding-top:100px;}
-        .motto_c h2{font-size:32px;color:#D2232A;font-weight:bold;font-style:italic;margin-bottom:20px;}
-        .motto_c p{color:#888;line-height:2em;width:500px;}
+        .motto .motto_c{overflow: hidden;}
+        .motto_c h2{font-size:32px;color:#D2232A;font-weight:bold;font-style:italic;margin-top:5px;}
         .motto_c .motto_c_name{text-align:right;font-style:italic;}
-        .mo_close{position: absolute;top:0px;right:0px;width:65px;height:66px;background:url('../imgs/btn_close.png') no-repeat 0 0;background-position: 0px -73px;}
+        .mo_close{position: absolute;top:0px;right:30px;width:65px;height:66px;background:url('../imgs/btn_close.png') no-repeat 0 0;background-position: 0px -73px;}
         .mo_close:hover{background-position: 0px 0px;}
         .mo_close span{display: block;text-indent: -9999px;}
 
