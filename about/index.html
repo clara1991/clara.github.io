@@ -2,171 +2,169 @@
 <html lang="zh-cn">
 <head>
 	<meta charest="utf-8">
-	<title>clara的个人主页</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta name="keywords" content="进击的前端工程师">
-	<meta name="description" content="和我一起关注行业资讯，关注美好生活">
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+	<title>关于我，关于生活</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/project-ex.css">
 </head>
 <body>
-	<div class="container">
-		<div class="head">
-			<nav id="nav" class="clear">
-				<ul>
-					<li><a href="javascript:;" data-top="0">Home</a></li>
-					<li><a href="javascript:;" data-top="764">Skill</a></li>
-					<li><a href="javascript:;" data-top="1648">Project</a></li>
-					<li><a href="javascript:;" data-top="2627">Experience</a></li>
-					<li><a href="javascript:;" data-top="3839">Contact</a></li>
+	//响应式导航
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand"><img src="images/logo-clara.png" style="height:60px;"></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right navbar-clara">
+					<li><a href="active"><span class="glyphicon glyphicon-home"></span> 生活感想</a></li>
+					<li><a href="information.html"><span class="glyphicon glyphicon-list"></span>  前端之路</a></li>
+					<li><a href="case.html"><span class="glyphicon glyphicon-fire"></span> 开发项目</a></li>
+					<li><a href="about.html"><span class="glyphicon glyphicon-question-sign"></span> 关于更多</a></li>
 				</ul>
-			</nav>
-			<div id="motto" class="motto">
-				<i class="icon_person"></i>
-				<div class="motto_c">
-					<h2>微观而约取，厚积而薄发</h2>
-					<a id="closeBtn" href="javascript:;" class="mo_close"><span>关闭</span></a>
-				</div>
 			</div>
 		</div>
-		<div class="content">
-			<div id="content" class="conten_in">
-				<section data-type="intro" class="f intro clear">
-					<a id="introBtn" href="javascript:;" class="intro_btn"></a><article>
-						<h1> <span>I'm </span>张蓉</h1>
-						<p>湖北·荆州</p>
-						<p>就读于湖北师范大学&nbsp;&nbsp;数字媒体技术专业</p>
-						<p>爱好:看小说、看视频、旅游</p>
-						<p>专注于web前端</p>
-					</article>
-				</section>
-				<section data-type="skill" class="f skill">
-					<h2>skill</h2>
-					<div class="skill_c clear">
-						<aside class="skill_c_r">
-							<ul>
-								<li>
-									<p><i class="icon icon_list"></i>会用Gulp构建化工具优化网站</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>会用Less框架、Bootstrap框架进行项目的开发</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>精通HTML+CSS网页布局与样式，熟练HTML5、CSS3</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>熟练运用Photoshop、Sublime text、Chrome Dev Tools等常用工具</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>熟练掌握移动端开发，对响应式页面与动画效果的实现有一定的实践与经验</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>会用Javascript语言，熟练掌握jQuery、Zepto框架实现网页特效和用户交互体验</p>
-								</li>
-								<li>
-									<p><i class="icon icon_list"></i>了解掌握网页中SEO的一些理念与Yahoo的性能优化建议，并可以在项目中有效实施</p>
-								</li>
-							</ul>
-						</aside>
-						<aside class="skill_c_l">
-							<ul id="skill">
-								<li class="css">
-									<label>CSS3</label>
-									<p> <span class="active"></span>85%</p>
-								</li>
-								<li class="html">
-									<label>HTML5</label>
-									<p> <span class="active"></span>80%</p>
-								</li>
-								<li class="js">
-									<label>JAVASCRIPT</label>
-									<p> <span class="active"></span>80%</p>
-								</li>
-							</ul>
-						</aside>
-					</div>
-				</section>
-				<section data-type="project" class="f pro">
-					<h2>Project</h2>
-					<div class="pro_c">
-						<ul id="project">
-							<li>
-								<a href="http://jiehun.deyi.com/" title="得意结婚" class="show">
-									<img src="imgs/1.jpg" alt="得意结婚">
-									<span class="mask">
-										<i class="icon icon_eye"></i>
-										<strong>Completed in 2015.5</strong>
-									</span>
-									<p><i class="icon icon_fly"></i>得意生活结婚频道</p>
-								</a>
-							</li>
-							<li>
-								<a href="http://zengzoe.sinaapp.com/wenxianbao/html/index2.html" title="文献宝" class="show">
-									<img src="imgs/2.jpg" alt="文献宝">
-									<span class="mask">
-										<i class="icon icon_eye"></i>
-										<strong>Completed in 2015.10</strong>
-									</span>
-									<p><i class="icon icon_fly"></i>文献宝网站</p>
-								</a>
-							</li>
-							<li>
-								<a href="http://cnt1992.sinaapp.com/baoxi/html/" title="宝熙文化" class="show">
-									<img src="imgs/3.jpg" alt="宝熙文化">
-									<span class="mask">
-										<i class="icon icon_eye"></i>
-										<strong>Completed in 2016.5</strong>
-									</span>
-									<p> <i class="icon icon_fly"></i>宝熙文化公司门户网站</p>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section data-type="experience" class="f exp">
-					<div class="exp_c_l show">
-						<span class="time">2015.2-2016.3</span>
-						<span class="icon icon_yue"></span>
-						<article>
-							<h3>武汉得意生活网络技术有限公司</h3>
-							<p>web前端开发</p>
-							<p>完成结婚频道和家居频道的前端页面，以及各种活动页面以及交互</p>
-							<span class="triangle"></span>
-						</article>
-					</div>
-					<div class="exp_c_l show">
-						<span class="time">2016.3-2016.12</span>
-						<span class="icon icon_wei"></span>
-						<article>
-							<h3>武汉得意生活网络技术有限公司</h3>
-							<p>移动app前端开发</p>
-							<p>负责移动端得意家app中的h5页面工作，从设计稿到页面代码相关重构工作。</p><span class="triangle"></span>
-						</article>
-					</div>
-				</section>
-				<section data-type="contact" id="contact" class="f con clear">
-						<span class="master"></span>
-						<div class="con_l">
-							<p class="con_l_pic">
-								<img src="imgs/code.png" style="width:200px;height:200px;"alt="张蓉微信二维码">
-							</p>
+	</nav>
+	//响应式轮播图
+	<div id="myCarousel" class="carousel slide" >
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+			<li data-target="#myCarousel" data-slide-to="3"></li>
+			<li data-target="#myCarousel" data-slide-to="4"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active" style="background:#56749a">
+				<img src="images/slide1.jpg" alt="第一张">
+			</div>
+			<div class="item" style="background:#6381c7">
+				<img src="images/slide2.jpg" alt="第二张">
+			</div>
+			<div class="item" style="background:#00010a">
+				<img src="images/slide3.jpg" alt="第三张">
+			</div>
+			<div class="item" style="background:#2ac6ee">
+				<img src="images/slide4.jpg" alt="第四张">
+			</div>
+			<div class="item" style="background:#001029">
+				<img src="images/slide5.jpg" alt="第五张">
+			</div>
+		</div>
+		<a href="#myCarousel" data-slide="prev" class="carousel-control left">
+			<span class="glyphicon glyphicon-chevron-left"></span> 
+		</a>
+		<a href="#myCarousel" data-slide="next" class="carousel-control right">
+			<span class="glyphicon glyphicon-chevron-right"></span> 
+		</a>
+	</div>
+	<div class="tab1">
+		<div class="container">
+			<h2 class="tab-h2">[我理想中的生活]</h2>
+			<p class="tab-p">有人爱，有事做，有所期待......</p>
+			<p class="tab-p">如果可以，我希望</p>
+			<div class="row">
+				<div class="col-md-6 col">
+					<div class="media">
+						<div class="media-left media-top">
+							<a href="#"><img class="media-object" src="images/tab1-1.jpg" alt="..."></a>
 						</div>
-						<aside>
-							<ul>
-								<li>
-									<a href="https://github.com/clara1991" alt="张蓉github"><i class="icon icon_git"></i>github.com/clara1991</a>
-								</li>
-								<li>
-									<a href="http://weibo.com/2029754171" alt="张蓉微博"><i class="icon icon_weibo"></i>weibo.com/p/1005052029754171/home</a>
-								</li>
-								<li><a href="javascript:;" alt="张蓉的邮箱"><i class="icon icon_qq"></i>602899753@qq.com</a></li>
-							</ul>
-						</aside>
-					</section>
+						<div class="media-body">
+							<h4 class="media-heading">有一个爱人</h4>
+							<p>不需要太帅，也不能太丑，脾气要好，可以随便揍他两下</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col">
+					<div class="media">
+						<div class="media-left media-top">
+							<a href="#"> <img class="media-object" src="images/tab1-2.jpg" alt="..."> </a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">有两个孩子</h4>
+							<p>在差不多30岁的时候，看着你们相互打闹，那画面一定很美</p>
+							</div>
+						</div>
+					</div>
+				<div class="col-md-6 col">
+					<div class="media">
+						<div class="media-left media-top">
+							<a href="#"> <img class="media-object" src="images/tab1-3.jpg" alt="..."> </a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">有自己的事业</h4>
+							<p>没有惊天动地，能够在自己的地盘独挡一面即可</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col">
+					<div class="media">
+						<div class="media-left media-top">
+							<a href="#"> <img class="media-object" src="images/tab1-4.jpg" alt="..."> </a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">有想去的地方</h4>
+							<p>哪怕到了40，50，也依然有想要出去看看的冲动！</p>
+						</div>
+					</div> 
 				</div>
 			</div>
-			<script src="js/index.js">
-			</script>
 		</div>
-	</body>
+	</div>
+	<div class="tab2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 tab2-img">
+					<img src="images/tab2.jpg" alt="" class="auto img-responsive center-block">
+				</div>
+				<div class="text col-md-6 col-sm-6 tab2-text">
+					<h3>有家</h3>
+					<p>一家人齐齐整整，开开心心</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<img src="images/tab3.jpg" alt="" class="auto img-responsive center-block">
+				</div>
+				<div class="text col-md-6 col-sm-6">
+					<h3>有爱</h3>
+					<p>爱旅游，爱美食，爱一切美好</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id="footer" class="text-muted">
+		<div class="container">
+			<p>我的生活 | 合作事宜 | 版权投诉</p> <p>Powered by Bootstrap.</p>
+		</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			//轮播自动播放
+			$('#myCarousel').carousel({
+				interval:4000,//自动4秒播放
+			});
+			//js控制垂直居中,谷歌浏览器解析的顺序调整，需要全部加载后执行 
+			$(window).load(function () {
+				$('.text').eq(0).css('margin-top', ($('.auto').eq(0).height()-$('.text').eq(0).height()) / 2 + 'px'); });
+			$(window).resize(function() {
+				$('.text').eq(0).css('margin-top', ($('.auto').eq(0).height()-$('.text').eq(0).height()) / 2 + 'px'); });
+			$(window).load(function () {
+				$('.text').eq(1).css('margin-top', ($('.auto').eq(1).height()-$('.text').eq(1).height()) / 2 + 'px'); });
+			$(window).resize(function() {
+				$('.text').eq(1).css('margin-top', ($('.auto').eq(1).height()-$('.text').eq(1).height()) / 2 + 'px'); });
+		});
+	</script>
+</body>
 </html>
