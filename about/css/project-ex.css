@@ -80,7 +80,8 @@ body {
 	}
 }
 .tab2 {
-	background: #eee;
+	background: #fff;
+    border: 1px solid #eee;
 	padding: 60px 20px;
 	text-align: center;
 	}
