@@ -10,9 +10,12 @@ body {
 .navbar{
 	min-height: 90px;
 }
+.navbar-default{
+	background-color: #fff;
+}
 .navbar-clara{
 	padding-top: 20px;
-    font-size: 20px;
+    font-size: 16px;
 }
 .carousel-inner img{
 	margin: 0 auto;
