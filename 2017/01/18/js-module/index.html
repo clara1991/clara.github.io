@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-o2 page-post-detail">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+	<title>理解前端模块化 | Clara - 爱写代码的小女生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+    <!-- keywords -->
+<meta name="keywords" content="模块化,Clara,前端博客,前端技术分享,css,div,js,jquery"/>
+<!-- Canonical links -->
+<link rel="canonical" href="http://yoursite.com/2017/01/18/js-module/index.html">
+<!-- Alternative links -->
+
+<!-- Icon -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/img/favicon-230x230.png" sizes="230x230">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
+-->
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2f83cd">
+<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+<!-- CSS -->
+<!-- build:css css/dist.o2.css -->
+<link rel="stylesheet" href="/css/o2.css">
+<!-- endbuild -->
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="Clara - 爱写代码的小女生">
+<!-- Open Graph -->
+<meta name="description" content="前言模块化在2016来说已经不是一个很新鲜的东西呢？大家都在使用模块化开发前端代码，支持模块化的构建工具也被大家广泛使用。
+为什么需要模块化这主要得益于前端技术的发展及页面复杂性的增加。有了模块化，我们可以更方便地使用别人的代码，想要什么功能，就加载什么模块，十分便捷。以前我们的web页面只用来展示静态内容，撑死加上几个飞来飞去的动画，现在前端内容越来越丰富，可以播放视频，可以协同工作，还可以玩游">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解前端模块化">
+<meta property="og:url" content="http://yoursite.com/2017/01/18/js-module/index.html">
+<meta property="og:site_name" content="Clara - 爱写代码的小女生">
+<meta property="og:description" content="前言模块化在2016来说已经不是一个很新鲜的东西呢？大家都在使用模块化开发前端代码，支持模块化的构建工具也被大家广泛使用。
+为什么需要模块化这主要得益于前端技术的发展及页面复杂性的增加。有了模块化，我们可以更方便地使用别人的代码，想要什么功能，就加载什么模块，十分便捷。以前我们的web页面只用来展示静态内容，撑死加上几个飞来飞去的动画，现在前端内容越来越丰富，可以播放视频，可以协同工作，还可以玩游">
+<meta property="og:updated_time" content="2017-02-25T06:25:36.423Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解前端模块化">
+<meta name="twitter:description" content="前言模块化在2016来说已经不是一个很新鲜的东西呢？大家都在使用模块化开发前端代码，支持模块化的构建工具也被大家广泛使用。
+为什么需要模块化这主要得益于前端技术的发展及页面复杂性的增加。有了模块化，我们可以更方便地使用别人的代码，想要什么功能，就加载什么模块，十分便捷。以前我们的web页面只用来展示静态内容，撑死加上几个飞来飞去的动画，现在前端内容越来越丰富，可以播放视频，可以协同工作，还可以玩游">
+<!-- Baidu Analytics -->
+
+
+<script>
+var App = {
+    root:'/'    
+};
+</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="navbar navbar-fixed-top header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index.html" title="Clara - 爱写代码的小女生" class="navbar-brand">
+                <img src="/img/logo-clara.png" alt="Clara - 爱写代码的小女生"/>
+            </a>
+            <div onclick="javascript:void(0)" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav header-links header-links-main">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-links header-links-extra">
+                <li class="search-wrap">
+                    <a class="fa fa-search search-icon" href="#search" title="搜索"></a>
+                    <form id="search" method="get" class="search-trigger search-form">
+                        <input type="text" name="query" class="search-form-ipt" placeholder="搜索" />
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="themes" aria-expanded="false">主题&nbsp;<span class="caret"></span></a>
+                    <ul id="theme-list" class="dropdown-menu" aria-labelledby="themes">
+                        <li data-v="light"><a href="javascript:;">曙光女神</a></li>
+                        <li data-v="dark"><a href="javascript:;">暗影猎手</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    
+	
+<div class="container post-wrap">
+    
+    <!-- Post -->
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <div class="post-title">
+            <h2><a href="/2017/01/18/js-module/" itemprop="name">理解前端模块化</a></h2>
+            <ul class="post-stats">
+                
+                
+                <li><a href='/tags/模块化/' class='meta-tag'>模块化</a></li>
+                 
+                
+                <li title="字数"><span class="icon fa-font"></span></li>
+                
+                 
+            </ul>
+            
+        </div>
+        <div class="post-meta">
+            <time class="published" datetime="2017-01-17T16:15:30.000Z" itempro="datePublished">2017-01-18</time>
+            <a target="_blank" href="https://github.com/clara1991" class="author"><span class="name">clara</span><img src="https://avatars.githubusercontent.com/clara1991?v=3&s=80" alt="clara1991" /></a>
+        </div>
+    </header>
+    <!--<a href="/2017/01/18/js-module/" class="image featured post-cover"><img src="/img/post/post-default.png" alt="理解前端模块化" /></a>-->
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
+        <h3 id="前言" class="post-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="post-anchor" href="#前言" aria-hidden="true"></a></h3><p>模块化在2016来说已经不是一个很新鲜的东西呢？大家都在使用模块化开发前端代码，支持模块化的构建工具也被大家广泛使用。</p>
+<h3 id="为什么需要模块化" class="post-heading"><a href="#为什么需要模块化" class="headerlink" title="为什么需要模块化"></a>为什么需要模块化<a class="post-anchor" href="#为什么需要模块化" aria-hidden="true"></a></h3><p>这主要得益于前端技术的发展及页面复杂性的增加。有了模块化，我们可以更方便地使用别人的代码，想要什么功能，就加载什么模块，十分便捷。以前我们的web页面只用来展示静态内容，撑死加上几个飞来飞去的动画，现在前端内容越来越丰富，可以播放视频，可以协同工作，还可以玩游戏。这就导致了前端代码量剧增。当代码行蹭蹭往上涨时，模块化思想自然而然地出来了。</p>
+<h3 id="模块化发展" class="post-heading"><a href="#模块化发展" class="headerlink" title="模块化发展"></a>模块化发展<a class="post-anchor" href="#模块化发展" aria-hidden="true"></a></h3><h5 id="一、CommonJS规范" class="post-heading"><a href="#一、CommonJS规范" class="headerlink" title="一、CommonJS规范"></a>一、CommonJS规范<a class="post-anchor" href="#一、CommonJS规范" aria-hidden="true"></a></h5><p>在commonjs中，有一个全局方法require()，用于同步加载模块，然后通过exports或module.exports来导出所需要暴露的接口。</p>
+<p>假定有一个数学模块math.js，就可以像下面这样加载：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>)</div></pre></td></tr></table></figure>
+<p>然后就可以调用模块提供的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</div><div class="line">math.add(<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<p>优点：</p>
+<p>1、适合在nodejs环境中加载模块，因为nodejs加载js文件都是从硬盘中直接加载，不同于浏览器环境</p>
+<p>缺点：</p>
+<p>1、同步的模块加载方式不适合在浏览器环境中，同步意味着阻塞加载</p>
+<p>2、不能非阻塞的并行加载多个模块</p>
+<h5 id="二、AMD规范" class="post-heading"><a href="#二、AMD规范" class="headerlink" title="二、AMD规范"></a>二、AMD规范<a class="post-anchor" href="#二、AMD规范" aria-hidden="true"></a></h5><p>它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成后，这个回调函数才会运行。</p>
+<p>AMD也采用require()语句加载模块，不同于CommonJS的是它要求两个参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="built_in">module</span>], callback);</div></pre></td></tr></table></figure>
+<p>第一个参数是一个数组，里面的成员就是要加载的模块；第二个参数则是加载成功后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="string">'math'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">math</span>)</span>&#123;</div><div class="line">  math.add(<span class="number">2</span>,<span class="number">3</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>模块加载采用AMD规范，模块必须按照AMD规范来写。</p>
+<p>假定一个模块不依赖其它模块，那么可以直接定义在define()函数中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+y;</div><div class="line">  &#125;;</div><div class="line">  retrun &#123;</div><div class="line">    <span class="attr">add</span> : add</div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>如果这个模块依赖其它模块，那么define()函数的第一个参数，必须是一个数组，指明该模块的依赖性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define([<span class="string">'mod1'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">mod1</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    mod1.dosomething(); <span class="comment">//调用mod1的方法</span></div><div class="line">    <span class="keyword">return</span> x+y;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">add</span> : add</div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>当require()函数加载上面这个模块时，就会先加载mod1.js文件。</p>
+<p>优点：</p>
+<p>1、适合在浏览器环境中异步加载模块</p>
+<p>2、可以并行加载多个模块</p>
+<p>缺点：</p>
+<p>1、提高了开发成本，代码阅读和书写较困难，模块定义的方式语义不顺畅。</p>
+<h5 id="三、CMD规范" class="post-heading"><a href="#三、CMD规范" class="headerlink" title="三、CMD规范"></a>三、CMD规范<a class="post-anchor" href="#三、CMD规范" aria-hidden="true"></a></h5><p>在CMD规范中一个模块就是一个文件，全局函数define()用来定义模块，参数可以为函数或对象或者字符串。</p>
+<p>当参数为函数的时候，表示模块的构造方法，执行构造方法得到模块向外提供的接口。</p>
+<p>如果将前面的代码改写成CMD形式，就是下面这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>);</div><div class="line">  math.add(<span class="number">2</span>,<span class="number">3</span>);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>math模块的代码就应该这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</div><div class="line">  exports.add = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x+y;</div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>require(id)用来加载模块，接受模块标识作为唯一参数，require是同步往下执行的，需要异步加载可以使用require.async(id,callback)来进行加载：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>)</span>&#123;</div><div class="line">  <span class="built_in">require</span>.async(<span class="string">'math'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">math</span>)</span>&#123;</div><div class="line">    math.add(<span class="number">2</span>,<span class="number">3</span>);</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>require.resolve(id)可以用来获取模块路径，不会加载模块。</p>
+<p>exports用来向外提供模块接口。</p>
+<p>module存储了一些与当前模块相关联的属性和方法。</p>
+<p>module.id模块唯一标识；</p>
+<p>module.uri模块绝对路径；</p>
+<p>module.dependencies模块依赖；</p>
+<p>module.exports模块对外提供的接口。</p>
+
+    </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2017-02-25T06:25:36.423Z" itemprop="dateModified">上次更新：2017-02-25 14:25:36</time>
+    </div>
+    
+<div class="actions pagination pagination-post">
+    
+    <div class="pagination-post-prev"><a href="/2017/01/28/vuejs-conponent/" class="button big" title="vue组件的重要选项及指令"><i class="fa fa-chevron-left"></i> vue组件的重要选项及指令</a></div>
+    
+    
+    <div class="pagination-post-next"><a href="/2017/01/01/build-tools/" class="button big" title="原来你是这样的前端build">原来你是这样的前端build <i class="fa fa-chevron-right"></i></a></div>
+    
+</div>
+
+
+    
+
+
+
+</article>
+
+</div>
+<div class="sec sec-follow-lite">
+    <div class="container">
+        <div class="sec-heading">
+            <p class="follow-pic"><img src="/img/qrcode.png" alt="关注我"/></p>
+            <p class="follow-desc">海海人生，无折腾不为乐。</p>
+            <p class="sec-heading-sub follow-acount">
+                <img class="follow-icon" src="/img/logo-circle-120.png" alt="AOTULabs"/> 微信号：sunriserong1991
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec sec-footer">
+    <div class="container">
+        <footer id="footer" class="sec-heading footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="/atom.xml" class="footer-link fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="https://github.com//" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+            </ul>
+            <div class="footer-sec copyright">
+            &copy; 2017 <a href="/" target="_blank">clara1991</a><br>
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+            </div>
+            <div class="footer-sec words">
+            "
+            
+            
+            
+            "
+            </div>
+            
+        </footer>
+    </div>
+</div>
+
+
+    
+    <section id="smSearch" class="slide-search">
+
+<!-- Search -->
+    <section>
+        <form class="search-trigger search" method="get">
+            <input type="text" name="query" placeholder="搜索" />
+        </form>
+    </section>
+
+<!-- Links -->
+    <section>
+		<h3>搜索结果</h3>
+        <ul class="links" id="searchResults">Loading...</ul>
+    </section>
+
+</section>
+
+<script id="tplSearch" type="text/hogan-tpl">
+    {{#items}}
+    <li>
+        <a href="{{ url }}" target="_blank">
+            <h3>{{ title }}</h3>
+            {{#desc}}
+			<p>{{ desc }}</p>
+			{{/desc}}
+        </a>
+    </li>
+    {{/items}}
+</script>
+
+
+    
+	
+	<div class="back-to-top" id="backTop"><i class="fa fa-long-arrow-up"></i></div>
+	
+    
+    <!-- Scripts -->
+<!-- build:js js/dist.o2.js -->
+<script src="/js/lunr.js"></script>
+<script src="/js/debounce.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/xhogan.js"></script>
+<script src="/js/hammer.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- endbuild -->
+
+
+
+
+
+
+
+    
+</body>
+</html>
