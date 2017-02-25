@@ -3,8 +3,7 @@ body {
 	 "Microsoft Yahei UI", "Microsoft YaHei", SimHei, 
 	 "\5B8B\4F53", simsun, sans-serif; 
 }
-//
-.container{position:relative;width:100%;min-height:100%;}
+/*.container{position:relative;width:100%;min-height:100%;}*/
 .body{padding-bottom:100px;}
 .footer{height:100px;position:fixed;bottom:0px;left:0px;}
 .navbar{
@@ -14,11 +13,20 @@ body {
 	background-color: #fff;
 }
 .navbar-clara{
-	padding-top: 20px;
     font-size: 16px;
+    padding-top: 15px;
 }
 .carousel-inner img{
 	margin: 0 auto;
+}
+.navbar-header{
+	height: 60px;
+	margin-top: 10px;
+}
+a.navbar-brand{
+	display: block;
+	height: 60px;
+	margin-top: -15px;
 }
 /*.carousel-control{
 	font-size: 100px;
