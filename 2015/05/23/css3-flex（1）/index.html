@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-o2 page-post-detail">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+	<title>跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇 | Clara - 爱写代码的小女生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+    <!-- keywords -->
+<meta name="keywords" content="css3,Clara,前端博客,前端技术分享,css,div,js,jquery"/>
+<!-- Canonical links -->
+<link rel="canonical" href="http://yoursite.com/2015/05/23/css3-flex（1）/index.html">
+<!-- Alternative links -->
+
+<!-- Icon -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/img/favicon-230x230.png" sizes="230x230">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
+-->
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2f83cd">
+<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+<!-- CSS -->
+<!-- build:css css/dist.o2.css -->
+<link rel="stylesheet" href="/css/o2.css">
+<!-- endbuild -->
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="Clara - 爱写代码的小女生">
+<!-- Open Graph -->
+<meta name="description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇这是一个可以让你告别浮动、完美实现垂直水平居中的新特性。
+Flexbox是布局模块，而不是一个简单的属性，它包含父元素和子元素的属性。
+Flexbox布局的主体思想是:元素可以改变大小以适应可用空间，当可用空间变大，Flex元素将伸展大小以填充可用空间，当Flex元素超出可用空间时将自动缩小。总之，Flex元素是可以让你的布局根据浏览器的大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇">
+<meta property="og:url" content="http://yoursite.com/2015/05/23/css3-flex（1）/index.html">
+<meta property="og:site_name" content="Clara - 爱写代码的小女生">
+<meta property="og:description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇这是一个可以让你告别浮动、完美实现垂直水平居中的新特性。
+Flexbox是布局模块，而不是一个简单的属性，它包含父元素和子元素的属性。
+Flexbox布局的主体思想是:元素可以改变大小以适应可用空间，当可用空间变大，Flex元素将伸展大小以填充可用空间，当Flex元素超出可用空间时将自动缩小。总之，Flex元素是可以让你的布局根据浏览器的大">
+<meta property="og:updated_time" content="2017-02-28T11:28:42.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇">
+<meta name="twitter:description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇这是一个可以让你告别浮动、完美实现垂直水平居中的新特性。
+Flexbox是布局模块，而不是一个简单的属性，它包含父元素和子元素的属性。
+Flexbox布局的主体思想是:元素可以改变大小以适应可用空间，当可用空间变大，Flex元素将伸展大小以填充可用空间，当Flex元素超出可用空间时将自动缩小。总之，Flex元素是可以让你的布局根据浏览器的大">
+<!-- Baidu Analytics -->
+
+
+<script>
+var App = {
+    root:'/'    
+};
+</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="navbar navbar-fixed-top header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index.html" title="Clara - 爱写代码的小女生" class="navbar-brand">
+                <img src="/img/logo-clara.png" alt="Clara - 爱写代码的小女生"/>
+            </a>
+            <div onclick="javascript:void(0)" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav header-links header-links-main">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-links header-links-extra">
+                <li class="search-wrap">
+                    <a class="fa fa-search search-icon" href="#search" title="搜索"></a>
+                    <form id="search" method="get" class="search-trigger search-form">
+                        <input type="text" name="query" class="search-form-ipt" placeholder="搜索" />
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="themes" aria-expanded="false">主题&nbsp;<span class="caret"></span></a>
+                    <ul id="theme-list" class="dropdown-menu" aria-labelledby="themes">
+                        <li data-v="light"><a href="javascript:;">曙光女神</a></li>
+                        <li data-v="dark"><a href="javascript:;">暗影猎手</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    
+	
+<div class="container post-wrap">
+    
+    <!-- Post -->
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <div class="post-title">
+            <h2><a href="/2015/05/23/css3-flex（1）/" itemprop="name">跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇</a></h2>
+            <ul class="post-stats">
+                
+                
+                <li><a href='/tags/css3/' class='meta-tag'>css3</a></li>
+                 
+                
+                <li title="字数"><span class="icon fa-font"></span></li>
+                
+                 
+            </ul>
+            
+        </div>
+        <div class="post-meta">
+            <time class="published" datetime="2015-05-23T01:15:40.000Z" itempro="datePublished">2015-05-23</time>
+            <a target="_blank" href="https://github.com/clara1991" class="author"><span class="name">clara</span><img src="https://avatars.githubusercontent.com/clara1991?v=3&s=80" alt="clara1991" /></a>
+        </div>
+    </header>
+    <!--<a href="/2015/05/23/css3-flex（1）/" class="image featured post-cover"><img src="/img/post/post-default.png" alt="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇" /></a>-->
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
+        <h2 id="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇" class="post-heading"><a href="#跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇" class="headerlink" title="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇"></a>跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇<a class="post-anchor" href="#跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇" aria-hidden="true"></a></h2><p>这是一个可以让你告别浮动、完美实现垂直水平居中的新特性。</p>
+<p>Flexbox是布局模块，而不是一个简单的属性，它包含父元素和子元素的属性。</p>
+<p>Flexbox布局的主体思想是:元素可以改变大小以适应可用空间，当可用空间变大，Flex元素将伸展大小以填充可用空间，当Flex元素超出可用空间时将自动缩小。总之，Flex元素是可以让你的布局根据浏览器的大小变化进行自动伸缩。</p>
+<h3 id="01-Flex-基本概念：" class="post-heading"><a href="#01-Flex-基本概念：" class="headerlink" title="01 Flex 基本概念："></a>01 Flex 基本概念：<a class="post-anchor" href="#01-Flex-基本概念：" aria-hidden="true"></a></h3><p>在 flex 容器中默认存在两条轴，水平主轴(main axis) 和垂直的交叉轴(cross axis)，这是默认的设置，当然你可以通过修改使垂直方向变为主轴，水平方向变为交叉轴，这个我们后面再说。</p>
+<p>在容器中的每个单元块被称之为 flex item，每个项目占据的主轴空间为 (main size), 占据的交叉轴的空间为 (cross size)。</p>
+<p>这里需要强调，不能先入为主认为宽度就是 main size，高度就是 cross size，这个还要取决于你主轴的方向，如果你垂直方向是主轴，那么项目的高度就是 main size。</p>
+<h3 id="02-Flex-容器：" class="post-heading"><a href="#02-Flex-容器：" class="headerlink" title="02 Flex 容器："></a>02 Flex 容器：<a class="post-anchor" href="#02-Flex-容器：" aria-hidden="true"></a></h3><p>首先，实现 flex 布局需要先指定一个容器，任何一个容器都可以被置顶为 flex 布局，这样容器内部的元素就可以使用 flex 来进行布局。</p>
+<blockquote>
+<p>.container {<br>    display: flex | inline-flex;       //可以有两种取值<br>}</p>
+</blockquote>
+<p>分别生成一个块状或行内的 flex 容器盒子。简单说来，如果你使用块元素如 div，你就可以使用 flex，而如果你使用行内元素，你可以使用 inline-flex。</p>
+<p>需要注意的是：当时设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。</p>
+<p>有下面六种属性可以设置在容器上，它们分别是：</p>
+<p>flex-direction<br>flex-wrap<br>flex-flow<br>justify-content<br>align-items<br>align-content</p>
+<h4 id="1-flex-direction-决定主轴的方向-即项目的排列方向" class="post-heading"><a href="#1-flex-direction-决定主轴的方向-即项目的排列方向" class="headerlink" title="1. flex-direction: 决定主轴的方向(即项目的排列方向)"></a>1. flex-direction: 决定主轴的方向(即项目的排列方向)<a class="post-anchor" href="#1-flex-direction-决定主轴的方向-即项目的排列方向" aria-hidden="true"></a></h4><blockquote>
+<p>.container {<br>    flex-direction: row | row-reverse | column | column-reverse;<br>}</p>
+</blockquote>
+<p>默认值：row，主轴为水平方向，起点在左端<br>row-reverse：主轴为水平方向，起点在右端<br>column：主轴为垂直方向，起点在上沿<br>column-reverse：主轴为垂直方向，起点在下沿</p>
+<h4 id="2-flex-wrap-决定容器内项目是否可换行" class="post-heading"><a href="#2-flex-wrap-决定容器内项目是否可换行" class="headerlink" title="2. flex-wrap: 决定容器内项目是否可换行"></a>2. flex-wrap: 决定容器内项目是否可换行<a class="post-anchor" href="#2-flex-wrap-决定容器内项目是否可换行" aria-hidden="true"></a></h4><p>默认情况下，项目都排在主轴线上，使用 flex-wrap 可实现项目的换行。</p>
+<blockquote>
+<p>.container {<br>    flex-wrap: nowrap | wrap | wrap-reverse;<br>}</p>
+</blockquote>
+<p>默认值：nowrap  不换行，即当主轴尺寸固定时，当空间不足时，项目尺寸会随之调整而并不会挤到下一行<br>wrap：项目主轴总尺寸超出容器时换行，第一行在上方<br>wrap-reverse：换行，第一行在下方</p>
+<h4 id="3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="post-heading"><a href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" class="headerlink" title="3. flex-flow: flex-direction 和 flex-wrap 的简写形式"></a>3. flex-flow: flex-direction 和 flex-wrap 的简写形式<a class="post-anchor" href="#3-flex-flow-flex-direction-和-flex-wrap-的简写形式" aria-hidden="true"></a></h4><blockquote>
+<p>.container {<br>    flex-flow: <flex-direction> || <flex-wrap>;<br>}<br>默认值为: row nowrap，感觉没什么卵用，老老实实分开写就好了。这样就不用记住这个属性了。</flex-wrap></flex-direction></p>
+</blockquote>
+<h4 id="4-justify-content：定义了项目在主轴的对齐方式。" class="post-heading"><a href="#4-justify-content：定义了项目在主轴的对齐方式。" class="headerlink" title="4. justify-content：定义了项目在主轴的对齐方式。"></a>4. justify-content：定义了项目在主轴的对齐方式。<a class="post-anchor" href="#4-justify-content：定义了项目在主轴的对齐方式。" aria-hidden="true"></a></h4><blockquote>
+<p>.container {<br>    justify-content: flex-start | flex-end | center | space-between | space-around;<br>}<br>建立在主轴为水平方向时测试，即 flex-direction: row</p>
+</blockquote>
+<p>默认值: flex-start 左对齐<br>flex-end：右对齐<br>center：居中<br>space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。<br>space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。</p>
+<h4 id="5-align-items-定义了项目在交叉轴上的对齐方式" class="post-heading"><a href="#5-align-items-定义了项目在交叉轴上的对齐方式" class="headerlink" title="5. align-items: 定义了项目在交叉轴上的对齐方式"></a>5. align-items: 定义了项目在交叉轴上的对齐方式<a class="post-anchor" href="#5-align-items-定义了项目在交叉轴上的对齐方式" aria-hidden="true"></a></h4><blockquote>
+<p>.container {<br>    align-items: flex-start | flex-end | center | baseline | stretch;<br>}<br>建立在主轴为水平方向时测试，即 flex-direction: row</p>
+</blockquote>
+<p>默认值为 stretch: 如果项目未设置高度或者设为 auto，将占满整个容器的高度。</p>
+<p>假设容器高度设置为 100px，而项目都没有设置高度的情况下，则项目的高度也为 100px。</p>
+<p>flex-start：交叉轴的起点对齐</p>
+<p>flex-end：交叉轴的终点对齐</p>
+<p>center：交叉轴的中点对齐</p>
+<p>baseline: 项目的第一行文字的基线对齐</p>
+<h4 id="6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="post-heading"><a href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" class="headerlink" title="6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用"></a>6. align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用<a class="post-anchor" href="#6-align-content-定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用" aria-hidden="true"></a></h4><blockquote>
+<p>.container {<br>    align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>}<br>这个这样理解：</p>
+</blockquote>
+<p>当你 flex-wrap 设置为 nowrap 的时候，容器仅存在一根轴线，因为项目不会换行，就不会产生多条轴线。</p>
+<p>当你 flex-wrap 设置为 wrap 的时候，容器可能会出现多条轴线，这时候你就需要去设置多条轴线之间的对齐方式了。</p>
+<p>建立在主轴为水平方向时测试，即 flex-direction: row, flex-wrap: wrap</p>
+<p>默认值为 stretch，当值为 stretch 时会三条轴线平分容器的垂直方向上的空间。</p>
+<p>flex-start：轴线全部在交叉轴上的起点对齐</p>
+<p>flex-end：轴线全部在交叉轴上的终点对齐</p>
+<p>center：轴线全部在交叉轴上的中间对齐</p>
+<p>space-between：轴线两端对齐，之间的间隔相等，即剩余空间等分成间隙。</p>
+<p>space-around：每个轴线两侧的间隔相等，所以轴线之间的间隔比轴线与边缘的间隔大一倍。</p>
+<h4 id="到这里关于容器上的所有属性都讲完了，下一篇接着讲讲关于在-flex-item-上的属性。" class="post-heading"><a href="#到这里关于容器上的所有属性都讲完了，下一篇接着讲讲关于在-flex-item-上的属性。" class="headerlink" title="到这里关于容器上的所有属性都讲完了，下一篇接着讲讲关于在 flex item 上的属性。"></a>到这里关于容器上的所有属性都讲完了，下一篇接着讲讲关于在 flex item 上的属性。<a class="post-anchor" href="#到这里关于容器上的所有属性都讲完了，下一篇接着讲讲关于在-flex-item-上的属性。" aria-hidden="true"></a></h4>
+    </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2017-02-28T11:28:42.377Z" itemprop="dateModified">上次更新：2017-02-28 19:28:42</time>
+    </div>
+    
+<div class="actions pagination pagination-post">
+    
+    <div class="pagination-post-prev"><a href="/2015/05/25/css3-flex（2）/" class="button big" title="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇"><i class="fa fa-chevron-left"></i> 跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇</a></div>
+    
+    
+</div>
+
+
+    
+
+
+
+</article>
+
+</div>
+<div class="sec sec-follow-lite">
+    <div class="container">
+        <div class="sec-heading">
+            <p class="follow-pic"><img src="/img/qrcode.png" alt="关注我"/></p>
+            <p class="follow-desc">海海人生，无折腾不为乐。</p>
+            <p class="sec-heading-sub follow-acount">
+                <img class="follow-icon" src="/img/logo-circle-120.png" alt="AOTULabs"/> 微信号：sunriserong1991
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec sec-footer">
+    <div class="container">
+        <footer id="footer" class="sec-heading footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="/atom.xml" class="footer-link fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="https://github.com//" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+            </ul>
+            <div class="footer-sec copyright">
+            &copy; 2017 <a href="/" target="_blank">clara1991</a><br>
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+            </div>
+            <div class="footer-sec words">
+            "
+            
+            
+            
+            "
+            </div>
+            
+        </footer>
+    </div>
+</div>
+
+
+    
+    <section id="smSearch" class="slide-search">
+
+<!-- Search -->
+    <section>
+        <form class="search-trigger search" method="get">
+            <input type="text" name="query" placeholder="搜索" />
+        </form>
+    </section>
+
+<!-- Links -->
+    <section>
+		<h3>搜索结果</h3>
+        <ul class="links" id="searchResults">Loading...</ul>
+    </section>
+
+</section>
+
+<script id="tplSearch" type="text/hogan-tpl">
+    {{#items}}
+    <li>
+        <a href="{{ url }}" target="_blank">
+            <h3>{{ title }}</h3>
+            {{#desc}}
+			<p>{{ desc }}</p>
+			{{/desc}}
+        </a>
+    </li>
+    {{/items}}
+</script>
+
+
+    
+	
+	<div class="back-to-top" id="backTop"><i class="fa fa-long-arrow-up"></i></div>
+	
+    
+    <!-- Scripts -->
+<!-- build:js js/dist.o2.js -->
+<script src="/js/lunr.js"></script>
+<script src="/js/debounce.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/xhogan.js"></script>
+<script src="/js/hammer.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- endbuild -->
+
+
+
+
+
+
+
+    
+</body>
+</html>

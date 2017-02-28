@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-o2 page-post-detail">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+	<title>跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇 | Clara - 爱写代码的小女生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+    <!-- keywords -->
+<meta name="keywords" content="css3,Clara,前端博客,前端技术分享,css,div,js,jquery"/>
+<!-- Canonical links -->
+<link rel="canonical" href="http://yoursite.com/2015/05/25/css3-flex（2）/index.html">
+<!-- Alternative links -->
+
+<!-- Icon -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/img/favicon-230x230.png" sizes="230x230">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
+-->
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2f83cd">
+<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+<!-- CSS -->
+<!-- build:css css/dist.o2.css -->
+<link rel="stylesheet" href="/css/o2.css">
+<!-- endbuild -->
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="Clara - 爱写代码的小女生">
+<!-- Open Graph -->
+<meta name="description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇03 Flex 项目属性：有六种属性可运用在 item 项目上：
+orderflex-basisflex-growflex-shrinkflexalign-self
+1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0
+.item {    order: ;}
+
+在 HTML 结构中，虽然 -2，-1 的 it">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇">
+<meta property="og:url" content="http://yoursite.com/2015/05/25/css3-flex（2）/index.html">
+<meta property="og:site_name" content="Clara - 爱写代码的小女生">
+<meta property="og:description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇03 Flex 项目属性：有六种属性可运用在 item 项目上：
+orderflex-basisflex-growflex-shrinkflexalign-self
+1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0
+.item {    order: ;}
+
+在 HTML 结构中，虽然 -2，-1 的 it">
+<meta property="og:updated_time" content="2017-02-28T11:39:08.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇">
+<meta name="twitter:description" content="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇03 Flex 项目属性：有六种属性可运用在 item 项目上：
+orderflex-basisflex-growflex-shrinkflexalign-self
+1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0
+.item {    order: ;}
+
+在 HTML 结构中，虽然 -2，-1 的 it">
+<!-- Baidu Analytics -->
+
+
+<script>
+var App = {
+    root:'/'    
+};
+</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="navbar navbar-fixed-top header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index.html" title="Clara - 爱写代码的小女生" class="navbar-brand">
+                <img src="/img/logo-clara.png" alt="Clara - 爱写代码的小女生"/>
+            </a>
+            <div onclick="javascript:void(0)" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav header-links header-links-main">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-links header-links-extra">
+                <li class="search-wrap">
+                    <a class="fa fa-search search-icon" href="#search" title="搜索"></a>
+                    <form id="search" method="get" class="search-trigger search-form">
+                        <input type="text" name="query" class="search-form-ipt" placeholder="搜索" />
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="themes" aria-expanded="false">主题&nbsp;<span class="caret"></span></a>
+                    <ul id="theme-list" class="dropdown-menu" aria-labelledby="themes">
+                        <li data-v="light"><a href="javascript:;">曙光女神</a></li>
+                        <li data-v="dark"><a href="javascript:;">暗影猎手</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    
+	
+<div class="container post-wrap">
+    
+    <!-- Post -->
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <div class="post-title">
+            <h2><a href="/2015/05/25/css3-flex（2）/" itemprop="name">跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇</a></h2>
+            <ul class="post-stats">
+                
+                
+                <li><a href='/tags/css3/' class='meta-tag'>css3</a></li>
+                 
+                
+                <li title="字数"><span class="icon fa-font"></span></li>
+                
+                 
+            </ul>
+            
+        </div>
+        <div class="post-meta">
+            <time class="published" datetime="2015-05-25T01:15:40.000Z" itempro="datePublished">2015-05-25</time>
+            <a target="_blank" href="https://github.com/clara1991" class="author"><span class="name">clara</span><img src="https://avatars.githubusercontent.com/clara1991?v=3&s=80" alt="clara1991" /></a>
+        </div>
+    </header>
+    <!--<a href="/2015/05/25/css3-flex（2）/" class="image featured post-cover"><img src="/img/post/post-default.png" alt="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇" /></a>-->
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
+        <h2 id="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇" class="post-heading"><a href="#跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇" class="headerlink" title="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇"></a>跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇<a class="post-anchor" href="#跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）下篇" aria-hidden="true"></a></h2><h3 id="03-Flex-项目属性：" class="post-heading"><a href="#03-Flex-项目属性：" class="headerlink" title="03 Flex 项目属性："></a>03 Flex 项目属性：<a class="post-anchor" href="#03-Flex-项目属性：" aria-hidden="true"></a></h3><p>有六种属性可运用在 item 项目上：</p>
+<p><strong>order</strong><br><strong>flex-basis</strong><br><strong>flex-grow</strong><br><strong>flex-shrink</strong><br><strong>flex</strong><br><strong>align-self</strong></p>
+<h4 id="1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="post-heading"><a href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" class="headerlink" title="1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0"></a>1. order: 定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0<a class="post-anchor" href="#1-order-定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为-0" aria-hidden="true"></a></h4><blockquote>
+<p>.item {<br>    order: <integer>;<br>}</integer></p>
+</blockquote>
+<p>在 HTML 结构中，虽然 -2，-1 的 item 排在后面，但是由于分别设置了 order，使之能够排到最前面。</p>
+<h4 id="2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="post-heading"><a href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" class="headerlink" title="2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间"></a>2. flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间<a class="post-anchor" href="#2-flex-basis-定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间" aria-hidden="true"></a></h4><blockquote>
+<p>.item {<br>    flex-basis: <length> | auto;<br>}<br>默认值：auto，即项目本来的大小, 这时候 item 的宽高取决于 width 或 height 的值。</length></p>
+</blockquote>
+<p>当主轴为水平方向的时候，当设置了 flex-basis，项目的宽度设置值会失效，flex-basis 需要跟 flex-grow 和 flex-shrink 配合使用才能发挥效果。</p>
+<p>当 flex-basis 值为 0 % 时，是把该项目视为零尺寸的，故即使声明该尺寸为 140px，也并没有什么用。<br>当 flex-basis 值为 auto 时，则跟根据尺寸的设定值(假如为 100px)，则这 100px 不会纳入剩余空间。</p>
+<h4 id="3-flex-grow-定义项目的放大比例" class="post-heading"><a href="#3-flex-grow-定义项目的放大比例" class="headerlink" title="3. flex-grow: 定义项目的放大比例"></a>3. flex-grow: 定义项目的放大比例<a class="post-anchor" href="#3-flex-grow-定义项目的放大比例" aria-hidden="true"></a></h4><blockquote>
+<p>.item {<br>    flex-grow: <number>;<br>}<br>默认值为 0，即如果存在剩余空间，也不放大</number></p>
+</blockquote>
+<p>当所有的项目都以 flex-basis 的值进行排列后，仍有剩余空间，那么这时候 flex-grow 就会发挥作用了。</p>
+<p>如果所有项目的 flex-grow 属性都为 1，则它们将等分剩余空间。(如果有的话)</p>
+<p>如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍。</p>
+<p>当然如果当所有项目以 flex-basis 的值排列完后发现空间不够了，且 flex-wrap：nowrap 时，此时 flex-grow 则不起作用了，这时候就需要接下来的这个属性。</p>
+<h4 id="4-flex-shrink-定义了项目的缩小比例" class="post-heading"><a href="#4-flex-shrink-定义了项目的缩小比例" class="headerlink" title="4. flex-shrink: 定义了项目的缩小比例"></a>4. flex-shrink: 定义了项目的缩小比例<a class="post-anchor" href="#4-flex-shrink-定义了项目的缩小比例" aria-hidden="true"></a></h4><blockquote>
+<p>.item {<br>    flex-shrink: <number>;<br>}<br>默认值: 1，即如果空间不足，该项目将缩小，负值对该属性无效。</number></p>
+</blockquote>
+<p>这里可以看出，虽然每个项目都设置了宽度为 50px，但是由于自身容器宽度只有 200px，这时候每个项目会被同比例进行缩小，因为默认值为 1。</p>
+<p>同理可得：</p>
+<p>如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小。 </p>
+<p>如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小。</p>
+<h4 id="5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="post-heading"><a href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" class="headerlink" title="5. flex: flex-grow, flex-shrink 和 flex-basis的简写"></a>5. flex: flex-grow, flex-shrink 和 flex-basis的简写<a class="post-anchor" href="#5-flex-flex-grow-flex-shrink-和-flex-basis的简写" aria-hidden="true"></a></h4><blockquote>
+<p>.item{<br>    flex: none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]<br>}</p>
+</blockquote>
+<p>flex 的默认值是以上三个属性值的组合。假设以上三个属性同样取默认值，则 flex 的默认值是 0 1 auto。</p>
+<p>有关快捷值：auto (1 1 auto) 和 none (0 0 auto)</p>
+<p>关于 flex 取值，还有许多特殊的情况，可以按以下来进行划分：</p>
+<p>当 flex 取值为一个非负数字，则该数字为 flex-grow 值，flex-shrink 取 1，flex-basis 取 0%，如下是等同的：</p>
+<blockquote>
+<p>.item {flex: 1;}<br>.item {<br>    flex-grow: 1;<br>    flex-shrink: 1;<br>    flex-basis: 0%;<br>}</p>
+</blockquote>
+<p>当 flex 取值为 0 时，对应的三个值分别为 0 1 0%</p>
+<blockquote>
+<p>.item {flex: 0;}<br>.item {<br>    flex-grow: 0;<br>    flex-shrink: 1;<br>    flex-basis: 0%;<br>}</p>
+</blockquote>
+<p>当 flex 取值为一个长度或百分比，则视为 flex-basis 值，flex-grow 取 1，flex-shrink 取 1，有如下等同情况（注意 0% 是一个百分比而不是一个非负数字）</p>
+<blockquote>
+<p>.item-1 {flex: 0%;}<br>.item-1 {<br>    flex-grow: 1;<br>    flex-shrink: 1;<br>    flex-basis: 0%;<br>}</p>
+<p>.item-2 {flex: 24px;}<br>.item-2 {<br>    flex-grow: 1;<br>    flex-shrink: 1;<br>    flex-basis: 24px;<br>}</p>
+</blockquote>
+<p>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%，如下是等同的：</p>
+<blockquote>
+<p>.item {flex: 2 3;}<br>.item {<br>    flex-grow: 2;<br>    flex-shrink: 3;<br>    flex-basis: 0%;<br>}<br>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1，如下是等同的：<br>.item {flex: 11 32px;}<br>.item {<br>    flex-grow: 11;<br>    flex-shrink: 1;<br>    flex-basis: 32px;<br>}</p>
+</blockquote>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性。</p>
+<p>grow 和 shrink 是一对双胞胎，grow 表示伸张因子，shrink 表示是收缩因子。</p>
+<p>grow 在 flex 容器下的子元素的宽度和比容器和小的时候起作用。 grow 定义了子元素的尺寸增长因子，容器中除去子元素之和剩下的尺寸会按照各个子元素的 grow 值进行平分加大各个子元素上。</p>
+<p>另外感谢 @王嘉成 在评论区的补充说明容器的 flex-wrap 与子项的 flex-shrink、flex-grow 之间的关系：</p>
+<p>当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）</p>
+<p>当 flex-wrap 为 wrap | wrap-reverse，且子项宽度和超过父容器宽度时，首先一定会换行，换行后，每一行的右端都可能会有剩余空间（最后一行包含的子项可能比前几行少，所以剩余空间可能会更大），这时 flex-grow 会起作用，若当前行所有子项的 flex-grow 都为0，则剩余空间保留，若当前行存在一个子项的 flex-grow 不为0，则剩余空间会被 flex-grow 不为0的子项占据<br>当 flex-wrap 为 nowrap，且子项宽度和不及父容器宽度时，flex-grow 会起作用，子项会根据 flex-grow 设定的值放大（为0的项不放大）<br>当 flex-wrap 为 nowrap，且子项宽度和超过父容器宽度时，flex-shrink 会起作用，子项会根据 flex-shrink 设定的值进行缩小（为0的项不缩小）。</p>
+<p>但这里有一个较为特殊情况，就是当这一行所有子项 flex-shrink 都为0时，也就是说所有的子项都不能缩小，就会出现讨厌的横向滚动条<br>总结上面四点，可以看出不管在什么情况下，在同一时间，flex-shrink 和 flex-grow 只有一个能起作用，这其中的道理细想起来也很浅显：空间足够时，flex-grow 就有发挥的余地，而空间不足时，flex-shrink 就能起作用。当然，flex-wrap 的值为 wrap | wrap-reverse 时，表明可以换行，既然可以换行，一般情况下空间就总是足够的，flex-shrink 当然就不会起作用</p>
+<h4 id="6-align-self-允许单个项目有与其他项目不一样的对齐方式" class="post-heading"><a href="#6-align-self-允许单个项目有与其他项目不一样的对齐方式" class="headerlink" title="6. align-self: 允许单个项目有与其他项目不一样的对齐方式"></a>6. align-self: 允许单个项目有与其他项目不一样的对齐方式<a class="post-anchor" href="#6-align-self-允许单个项目有与其他项目不一样的对齐方式" aria-hidden="true"></a></h4><p>单个项目覆盖 align-items 定义的属性</p>
+<p>默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。</p>
+<blockquote>
+<p>.item {<br>     align-self: auto | flex-start | flex-end | center | baseline | stretch;<br>}<br>这个跟 align-items 属性时一样的，只不过 align-self 是对单个项目生效的，而 align-items 则是对容器下的所有项目生效的。</p>
+</blockquote>
+<p>容器 align-items 设置为 flex-start，而第三个项目的 align-self 值为 flex-end。</p>
+
+    </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2017-02-28T11:39:08.472Z" itemprop="dateModified">上次更新：2017-02-28 19:39:08</time>
+    </div>
+    
+<div class="actions pagination pagination-post">
+    
+    <div class="pagination-post-prev"><a href="/2015/11/18/css3-transition/" class="button big" title="css3transition属性速记法"><i class="fa fa-chevron-left"></i> css3transition属性速记法</a></div>
+    
+    
+    <div class="pagination-post-next"><a href="/2015/05/23/css3-flex（1）/" class="button big" title="跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇">跟着我一步一步弄懂CSS3弹性盒模型（Flexbox）上篇 <i class="fa fa-chevron-right"></i></a></div>
+    
+</div>
+
+
+    
+
+
+
+</article>
+
+</div>
+<div class="sec sec-follow-lite">
+    <div class="container">
+        <div class="sec-heading">
+            <p class="follow-pic"><img src="/img/qrcode.png" alt="关注我"/></p>
+            <p class="follow-desc">海海人生，无折腾不为乐。</p>
+            <p class="sec-heading-sub follow-acount">
+                <img class="follow-icon" src="/img/logo-circle-120.png" alt="AOTULabs"/> 微信号：sunriserong1991
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec sec-footer">
+    <div class="container">
+        <footer id="footer" class="sec-heading footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="/atom.xml" class="footer-link fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="https://github.com//" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+            </ul>
+            <div class="footer-sec copyright">
+            &copy; 2017 <a href="/" target="_blank">clara1991</a><br>
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+            </div>
+            <div class="footer-sec words">
+            "
+            
+            
+            
+            "
+            </div>
+            
+        </footer>
+    </div>
+</div>
+
+
+    
+    <section id="smSearch" class="slide-search">
+
+<!-- Search -->
+    <section>
+        <form class="search-trigger search" method="get">
+            <input type="text" name="query" placeholder="搜索" />
+        </form>
+    </section>
+
+<!-- Links -->
+    <section>
+		<h3>搜索结果</h3>
+        <ul class="links" id="searchResults">Loading...</ul>
+    </section>
+
+</section>
+
+<script id="tplSearch" type="text/hogan-tpl">
+    {{#items}}
+    <li>
+        <a href="{{ url }}" target="_blank">
+            <h3>{{ title }}</h3>
+            {{#desc}}
+			<p>{{ desc }}</p>
+			{{/desc}}
+        </a>
+    </li>
+    {{/items}}
+</script>
+
+
+    
+	
+	<div class="back-to-top" id="backTop"><i class="fa fa-long-arrow-up"></i></div>
+	
+    
+    <!-- Scripts -->
+<!-- build:js js/dist.o2.js -->
+<script src="/js/lunr.js"></script>
+<script src="/js/debounce.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/xhogan.js"></script>
+<script src="/js/hammer.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- endbuild -->
+
+
+
+
+
+
+
+    
+</body>
+</html>
