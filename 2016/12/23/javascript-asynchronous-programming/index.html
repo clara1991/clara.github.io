@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-o2 page-post-detail">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+	<title>JAVASCRIPT异步编程的方法 | Clara - 爱写代码的小女生</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+    <!-- keywords -->
+<meta name="keywords" content="javascript,Clara,前端博客,前端技术分享,css,div,js,jquery"/>
+<!-- Canonical links -->
+<link rel="canonical" href="http://yoursite.com/2016/12/23/javascript-asynchronous-programming/index.html">
+<!-- Alternative links -->
+
+<!-- Icon -->
+<!--
+<link rel="apple-touch-icon" sizes="57x57" href="/img/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/img/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/img/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/img/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/img/favicon-230x230.png" sizes="230x230">
+<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
+-->
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2f83cd">
+<meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+<!-- CSS -->
+<!-- build:css css/dist.o2.css -->
+<link rel="stylesheet" href="/css/o2.css">
+<!-- endbuild -->
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="Clara - 爱写代码的小女生">
+<!-- Open Graph -->
+<meta name="description" content="异步模式的重要性已经不言而喻了！在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，”异步模式”甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。
+本文总结了”异步模式”编程的4种方法，理解它们可以写出结构更合理、性能更出色、维护更方便的Javascript程序。
+方法1：回调函数这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVASCRIPT异步编程的方法">
+<meta property="og:url" content="http://yoursite.com/2016/12/23/javascript-asynchronous-programming/index.html">
+<meta property="og:site_name" content="Clara - 爱写代码的小女生">
+<meta property="og:description" content="异步模式的重要性已经不言而喻了！在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，”异步模式”甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。
+本文总结了”异步模式”编程的4种方法，理解它们可以写出结构更合理、性能更出色、维护更方便的Javascript程序。
+方法1：回调函数这">
+<meta property="og:updated_time" content="2017-02-28T14:45:39.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVASCRIPT异步编程的方法">
+<meta name="twitter:description" content="异步模式的重要性已经不言而喻了！在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，”异步模式”甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。
+本文总结了”异步模式”编程的4种方法，理解它们可以写出结构更合理、性能更出色、维护更方便的Javascript程序。
+方法1：回调函数这">
+<!-- Baidu Analytics -->
+
+
+<script>
+var App = {
+    root:'/'    
+};
+</script>
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+    
+    <div class="navbar navbar-fixed-top header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/index.html" title="Clara - 爱写代码的小女生" class="navbar-brand">
+                <img src="/img/logo-clara.png" alt="Clara - 爱写代码的小女生"/>
+            </a>
+            <div onclick="javascript:void(0)" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav header-links header-links-main">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right header-links header-links-extra">
+                <li class="search-wrap">
+                    <a class="fa fa-search search-icon" href="#search" title="搜索"></a>
+                    <form id="search" method="get" class="search-trigger search-form">
+                        <input type="text" name="query" class="search-form-ipt" placeholder="搜索" />
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" id="themes" aria-expanded="false">主题&nbsp;<span class="caret"></span></a>
+                    <ul id="theme-list" class="dropdown-menu" aria-labelledby="themes">
+                        <li data-v="light"><a href="javascript:;">曙光女神</a></li>
+                        <li data-v="dark"><a href="javascript:;">暗影猎手</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    
+	
+<div class="container post-wrap">
+    
+    <!-- Post -->
+<article class="post" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <div class="post-title">
+            <h2><a href="/2016/12/23/javascript-asynchronous-programming/" itemprop="name">JAVASCRIPT异步编程的方法</a></h2>
+            <ul class="post-stats">
+                
+                
+                <li><a href='/tags/javascript/' class='meta-tag'>javascript</a></li>
+                 
+                
+                <li title="字数"><span class="icon fa-font"></span></li>
+                
+                 
+            </ul>
+            
+        </div>
+        <div class="post-meta">
+            <time class="published" datetime="2016-12-23T02:15:40.000Z" itempro="datePublished">2016-12-23</time>
+            <a target="_blank" href="https://github.com/clara1991" class="author"><span class="name">clara</span><img src="https://avatars.githubusercontent.com/clara1991?v=3&s=80" alt="clara1991" /></a>
+        </div>
+    </header>
+    <!--<a href="/2016/12/23/javascript-asynchronous-programming/" class="image featured post-cover"><img src="/img/post/post-default.png" alt="JAVASCRIPT异步编程的方法" /></a>-->
+    <div class="post-content" itemprop="articleBody" data-swiftype-index="true">
+        <p>异步模式的重要性已经不言而喻了！在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，”异步模式”甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。</p>
+<p>本文总结了”异步模式”编程的4种方法，理解它们可以写出结构更合理、性能更出色、维护更方便的Javascript程序。</p>
+<h3 id="方法1：回调函数" class="post-heading"><a href="#方法1：回调函数" class="headerlink" title="方法1：回调函数"></a>方法1：回调函数<a class="post-anchor" href="#方法1：回调函数" aria-hidden="true"></a></h3><p>这是异步编程最基本的方法<br>假定有两个函数f1和f2，后者等待前者的执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f1();</div><div class="line">f2();</div></pre></td></tr></table></figure>
+<p>如果f1是一个很耗时间的任务，可以考虑改写f1，把f2写成f1的回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function f1(callback)&#123;</div><div class="line">   setTimeout(function()&#123;</div><div class="line">   //f1的任务代码</div><div class="line">   callback();</div><div class="line">   &#125;,1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行代码就变成下面这样：f1(f2);</p>
+<p>采用这种方式，我们把同步操作变成了异步操作，f1不会堵塞程序运行，相当于先执行程序的主要逻辑，将耗时的操作推迟执行。</p>
+<p>回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。</p>
+<h3 id="方法2：事件监听" class="post-heading"><a href="#方法2：事件监听" class="headerlink" title="方法2：事件监听"></a>方法2：事件监听<a class="post-anchor" href="#方法2：事件监听" aria-hidden="true"></a></h3><p>采取事件驱动模式。任务的执行不取决于代码的顺序，而取决于某个事件是否发生。<br>还是以f1和f2为例。首先，为f1绑定一个时间（这里采用jquery的写法）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f1.on(&apos;done&apos;,f2);</div></pre></td></tr></table></figure>
+<p>上面这行代码的意思是，当f1发生done事件，就执行f2。然后，对f1进行改写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">　　　　setTimeout(function () &#123;</div><div class="line">　　　　　　// f1的任务代码</div><div class="line">　　　　　　f1.trigger(&apos;done&apos;);</div><div class="line">　　　　&#125;, 1000);</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>f1.trigger(‘done’)表示，执行完成后，立即触发done事件，从而开始执行f2。<br>这种方法的优点是比较容易理解，可以绑定多个事件，每个事件可以指定多个回调函数，而且可以”去耦合”（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。</p>
+<h3 id="方法3：发布-订阅" class="post-heading"><a href="#方法3：发布-订阅" class="headerlink" title="方法3：发布/订阅"></a>方法3：发布/订阅<a class="post-anchor" href="#方法3：发布-订阅" aria-hidden="true"></a></h3><p>上一节的”事件”，完全可以理解成”信号”。</p>
+<p>我们假定，存在一个”信号中心”，某个任务执行完成，就向信号中心”发布”（publish）一个信号，其他任务可以向信号中心”订阅”（subscribe）这个信号，从而知道什么时候自己可以开始执行。这就叫做”发布/订阅模式”（publish-subscribe pattern），又称”观察者模式”（observer pattern）。</p>
+<p>这个模式有多种实现，下面采用的是Ben Alman的Tiny Pub/Sub，这是jQuery的一个插件。</p>
+<p>首先，f2向”信号中心”jQuery订阅”done”信号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQuery.subscribe(&quot;done&quot;, f2);</div></pre></td></tr></table></figure>
+<p>然后，f1进行如下改写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">　　　　setTimeout(function () &#123;</div><div class="line">　　　　　　// f1的任务代码</div><div class="line">　　　　　　jQuery.publish(&quot;done&quot;);</div><div class="line">　　　　&#125;, 1000);</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>jQuery.publish(“done”)的意思是，f1执行完成后，向”信号中心”jQuery发布”done”信号，从而引发f2的执行。<br>此外，f2完成执行后，也可以取消订阅（unsubscribe）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQuery.unsubscribe(&quot;done&quot;, f2);</div></pre></td></tr></table></figure>
+<p>这种方法的性质与”事件监听”类似，但是明显优于后者。因为我们可以通过查看”消息中心”，了解存在多少信号、每个信号有多少订阅者，从而监控程序的运行。</p>
+<h3 id="方法4：Promises对象" class="post-heading"><a href="#方法4：Promises对象" class="headerlink" title="方法4：Promises对象"></a>方法4：Promises对象<a class="post-anchor" href="#方法4：Promises对象" aria-hidden="true"></a></h3><p>Promises对象是CommonJS工作组提出的一种规范，目的是为异步编程提供统一接口。<br>简单说，它的思想是，每一个异步任务返回一个Promise对象，该对象有一个then方法，允许指定回调函数。比如，f1的回调函数f2,可以写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f1().then(f2);</div></pre></td></tr></table></figure>
+<p>f1要进行如下改写（这里使用的是jQuery的实现）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">　　　　var dfd = $.Deferred();</div><div class="line">　　　　setTimeout(function () &#123;</div><div class="line">　　　　　　// f1的任务代码</div><div class="line">　　　　　　dfd.resolve();</div><div class="line">　　　　&#125;, 500);</div><div class="line">　　　　return dfd.promise;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<p>这样写的优点在于，回调函数变成了链式写法，程序的流程可以看得很清楚，而且有一整套的配套方法，可以实现许多强大的功能。<br>比如，指定多个回调函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f1().then(f2).then(f3);</div></pre></td></tr></table></figure>
+<p>再比如，指定发生错误时的回调函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f1().then(f2).fail(f3);</div></pre></td></tr></table></figure>
+<p>而且，它还有一个前面三种方法都没有的好处：如果一个任务已经完成，再添加回调函数，该回调函数会立即执行。所以，你不用担心是否错过了某个事件或信号。这种方法的缺点就是编写和理解，都相对比较难。</p>
+
+    </div>
+    <div class="post-revision">
+        <i class="fa fa-clock-o"></i> <time class="post-updated" datetime="2017-02-28T14:45:39.294Z" itemprop="dateModified">上次更新：2017-02-28 22:45:39</time>
+    </div>
+    
+<div class="actions pagination pagination-post">
+    
+    <div class="pagination-post-prev"><a href="/2016/12/28/vue-webpack-global-install/" class="button big" title="vue+webpack的安装及新建项目"><i class="fa fa-chevron-left"></i> vue+webpack的安装及新建项目</a></div>
+    
+    
+    <div class="pagination-post-next"><a href="/2016/10/10/Publis-To-Github/" class="button big" title="hexo静态博客部署到github">hexo静态博客部署到github <i class="fa fa-chevron-right"></i></a></div>
+    
+</div>
+
+
+    
+
+
+
+</article>
+
+</div>
+<div class="sec sec-follow-lite">
+    <div class="container">
+        <div class="sec-heading">
+            <p class="follow-pic"><img src="/img/qrcode.png" alt="关注我"/></p>
+            <p class="follow-desc">海海人生，无折腾不为乐。</p>
+            <p class="sec-heading-sub follow-acount">
+                <img class="follow-icon" src="/img/logo-circle-120.png" alt="AOTULabs"/> 微信号：sunriserong1991
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="sec sec-footer">
+    <div class="container">
+        <footer id="footer" class="sec-heading footer">
+            <ul class="icons">
+                <li><a href="https://twitter.com/" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="/atom.xml" class="footer-link fa-rss"><span class="label">RSS</span></a></li>
+                <li><a href="https://github.com//" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+            </ul>
+            <div class="footer-sec copyright">
+            &copy; 2017 <a href="/" target="_blank">clara1991</a><br>
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+            </div>
+            <div class="footer-sec words">
+            "
+            
+            
+            
+            "
+            </div>
+            
+        </footer>
+    </div>
+</div>
+
+
+    
+    <section id="smSearch" class="slide-search">
+
+<!-- Search -->
+    <section>
+        <form class="search-trigger search" method="get">
+            <input type="text" name="query" placeholder="搜索" />
+        </form>
+    </section>
+
+<!-- Links -->
+    <section>
+		<h3>搜索结果</h3>
+        <ul class="links" id="searchResults">Loading...</ul>
+    </section>
+
+</section>
+
+<script id="tplSearch" type="text/hogan-tpl">
+    {{#items}}
+    <li>
+        <a href="{{ url }}" target="_blank">
+            <h3>{{ title }}</h3>
+            {{#desc}}
+			<p>{{ desc }}</p>
+			{{/desc}}
+        </a>
+    </li>
+    {{/items}}
+</script>
+
+
+    
+	
+	<div class="back-to-top" id="backTop"><i class="fa fa-long-arrow-up"></i></div>
+	
+    
+    <!-- Scripts -->
+<!-- build:js js/dist.o2.js -->
+<script src="/js/lunr.js"></script>
+<script src="/js/debounce.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/xhogan.js"></script>
+<script src="/js/hammer.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- endbuild -->
+
+
+
+
+
+
+
+    
+</body>
+</html>
