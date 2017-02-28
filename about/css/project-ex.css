@@ -273,13 +273,16 @@ a.navbar-brand{
 }
 #about {
 	padding: 40px 15px;
-	background-color: #eee;
+	background-color: #81007f;
 	margin-top: 70px;
 }
 #about .about {
 	background-color: #fff;
 	box-shadow: 2px 2px 3px #ccc;
 	padding-bottom: 20px;
+}
+#about .about li{
+	line-height: 30px;
 }
 #about h3 {
 	margin: 0 0 10px 0;
@@ -288,7 +291,7 @@ a.navbar-brand{
 	font-size: 18px; //768,19; 992,20; 1200 22;
 } 
 #about p {
-	line-height: 2;
+	line-height: 30px;
 	font-size: 13px; //768,14; 992,15; 1200 16;
 }
 @media(min-width: 768px){
